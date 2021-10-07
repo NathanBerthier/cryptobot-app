@@ -6529,6 +6529,11 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
     hash-base "^3.0.0"
     inherits "^2.0.1"
 
+rive-js@^0.7.30:
+  version "0.7.30"
+  resolved "https://registry.yarnpkg.com/rive-js/-/rive-js-0.7.30.tgz#dff4abfd40de0689d775666f478c7b9260a0e742"
+  integrity sha512-9UqrpwqoaXCwEeLblfsnEZocf+s/OswJm10pjYI50uxYmFgKpbuyllIjW0XkQxJuWETXkhhUW+ESdhJ5lc1POA==
+
 run-parallel@^1.1.9:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/run-parallel/-/run-parallel-1.2.0.tgz#66d1368da7bdf921eb9d95bd1a9229e7f21a43ee"

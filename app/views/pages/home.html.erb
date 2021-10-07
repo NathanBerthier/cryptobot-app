@@ -1,7 +1,7 @@
 <div class='home-content'>
   <div class='home-head'>
     <div class='home-title'>
-      <%= image_tag("bob.svg") %>
+      <canvas id="canvas" width="55" height="55"></canvas>
       <h2>my bob</h2>
       <h3 class='status green'>working</h3>
     </div>
@@ -82,3 +82,23 @@
     </div>
   </div>
 </div>
+<script src="https://unpkg.com/rive-js"></script>
+<script>
+  const status = document.querySelector('.status').innerText
+  const btn = document.querySelector('.home-btn')
+
+  const working = status === 'working' ? true : false
+
+  const r = new rive.Rive({
+    src: "<%= asset_path('bob.riv') %>",
+    canvas: document.getElementById('canvas'),
+    autoplay: true,
+    stateMachines: 'state',
+    fit: rive.Fit.cover,
+    onLoad: (_) => {
+      const inputs = r.stateMachineInputs('state');
+      const statusTriger = inputs.find(i => i.name === 'status');
+      statusTriger.value = working
+    },
+  });
+</script>
