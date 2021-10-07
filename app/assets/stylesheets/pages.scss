@@ -1,3 +1,59 @@
-// Place all the styles related to the pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.home-content {
+  border-radius: 8px;
+  width: auto;
+  margin: 100px 0px;
+  background: $dark-blue;
+  padding: 30px;
+}
+
+.home-head {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.home-title {
+  display: flex;
+}
+
+.home-title > * {
+  margin-right: 20px;
+}
+
+.home-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 55px;
+  width: 80px;
+  border-radius: 8px;
+}
+
+.home-info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.home-profit {
+  width: calc(35% - 50px);
+  background: $grey;
+  margin-right: 50px;
+  height: 224px;
+  border-radius: 8px;
+  padding: 30px;
+  div {
+    text-align: center;
+    h3 {
+      margin-bottom: 45px;
+      margin-top: 0px;
+    }
+  }
+  h3 {
+    margin-top: 15px;
+  }
+}
+
+.home-log {
+  width: 65%;
+}
