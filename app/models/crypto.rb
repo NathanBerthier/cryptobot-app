@@ -10,11 +10,11 @@ class Crypto
     crypto_data['amount'].to_f
   end
 
-  def buy
-    puts 'Buy'
+  def buy(balance_dai, dai_price, eth_price)
+    (balance_dai * dai_price) / eth_price
   end
 
-  def sell
-    puts 'Sell'
+  def sell(balance_eth, eth_price, dai_price)
+    (balance_eth * eth_price) / dai_price
   end
 end
