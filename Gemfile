@@ -46,3 +46,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'coinbase'
 gem 'dotenv-rails', groups: [:development, :test]
+gem 'sidekiq'
+gem 'sidekiq-failures', '~> 1.0'

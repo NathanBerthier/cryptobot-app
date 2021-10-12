@@ -3,13 +3,32 @@
     <div class='home-title'>
       <canvas id="canvas" width="55" height="55"></canvas>
       <h2>my bob</h2>
-      <h3 class='status green'>working</h3>
+
+      <% if @bob.status == 'working' %>
+        <h3 class='status green'><%= @bob.status %></h3>
+      <% elsif @bob.status == 'waiting' %>
+        <h3 class='status yellow'><%= @bob.status %></h3>
+      <% else %>
+        <h3 class='status red'><%= @bob.status %></h3>
+      <% end %>
+
     </div>
-    <%= link_to root_path do %>
-      <div class='home-btn red'>
-        <i class="fas fa-stop"></i>
-      </div>
+
+    <% if @bob.status == 'working' %>
+      <%= link_to bob_path(1), method: :patch do %>
+        <div class='home-btn red'>
+          <i class="fas fa-stop"></i>
+        </div>
+      <% end %>
+    <% elsif @bob.status == 'waiting' %>
+    <% else %>
+      <%= link_to bob_path(1), method: :patch do %>
+        <div class='home-btn green'>
+          <i class="fas fa-play"></i>
+        </div>
+      <% end %>
     <% end %>
+
   </div>
   <h3>Today bob is trading some ETH</h3>
   <div class='home-info'>
@@ -87,7 +106,7 @@
   const status = document.querySelector('.status').innerText
   const btn = document.querySelector('.home-btn')
 
-  const working = status === 'working' ? true : false
+  const working = (status === 'working') || (status === 'waiting') ? true : false
 
   const r = new rive.Rive({
     src: "<%= asset_path('bob.riv') %>",
