@@ -9,4 +9,12 @@ class Crypto
     crypto_data = client.buy_price({ currency_pair: "#{@symbol.upcase}-USD" })
     crypto_data['amount'].to_f
   end
+
+  def buy
+    puts 'Buy'
+  end
+
+  def sell
+    puts 'Sell'
+  end
 end
