@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.3'
 services:
   db:
     image: postgres:latest
@@ -17,15 +17,12 @@ services:
   web:
     build: .
     ports:
-      - "4242:4242"
+      - "3000:3000"
     depends_on:
       - db
       - redis
     environment:
       - DATABASE_URL=postgres://postgres:password@db:5432/postgres
       - REDIS_URL=redis://redis:6379
-    volumes:
-      - .:/app
-
 volumes:
   dbdata:

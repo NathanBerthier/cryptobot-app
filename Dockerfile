@@ -1,4 +1,4 @@
-FROM ruby:2.7.3
+FROM ruby:2.7.3-alpine
 
 RUN apk add --update --virtual \
   runtime-deps \
@@ -21,6 +21,7 @@ RUN apk add --update --virtual \
   git \
   tzdata \
   && rm -rf /var/cache/apk/*
+RUN gem install bundler:2.2.22
 
 WORKDIR /app
 COPY . /app/
@@ -32,4 +33,4 @@ RUN bundle install
 ENTRYPOINT ["bin/rails"]
 CMD ["s", "-b", "0.0.0.0"]
 
-EXPOSE 4242
+EXPOSE 3000
