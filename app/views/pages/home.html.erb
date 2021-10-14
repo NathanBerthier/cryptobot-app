@@ -36,67 +36,20 @@
       <div>
         <h3>Profit</h3>
       </div>
-      <h3>Today: 40$</h3>
-      <h3>This mounth: 140$</h3>
-      <h3>This year: 1320$</h3>
+      <h3>All time: <%= @last_transaction ? (@last_transaction.balance_value.to_f / 1000).round(3) - 500 : 0 %>$</h3>
     </div>
 
     <div class='home-log'>
-
-      <div class='log-card'>
-        <h3>Buy at: 20h32</h3>
-        <h3>Current ETH price: 3534$</h3>
-        <h3>SHIB balance: 2 ETH</h3>
-        <h3>Balance value: 7068$</h3>
-        <h3>Market direction: 📈</h3>
-        <div class='status log-status red'>
-          <h3>buy</h3>
+      <% @last_transactions.reverse.each do |last_transactions| %>
+        <div class='log-card'>
+          <h3>Buy at: <%= last_transactions.time.strftime('%Ih %M:%S') %></h3>
+          <h3>Transaction price: <%= (last_transactions.price.to_f / 1000).round(3) %>$</h3>
+          <h3>Balance value: <%= (last_transactions.balance_value.to_f / 1000).round(3) %>$</h3>
+          <div class='status log-status <%= last_transactions.transaction_type == 'buy' ? 'red' : 'green' %>'>
+            <h3><%= last_transactions.transaction_type %></h3>
+          </div>
         </div>
-      </div>
-
-      <div class='log-card'>
-        <h3>Buy at: 20h32</h3>
-        <h3>Current ETH price: 3534$</h3>
-        <h3>SHIB balance: 2 ETH</h3>
-        <h3>Balance value: 7068$</h3>
-        <h3>Market direction: 📈</h3>
-        <div class='status log-status yellow'>
-          <h3>wait</h3>
-        </div>
-      </div>
-
-      <div class='log-card'>
-        <h3>Buy at: 20h32</h3>
-        <h3>Current ETH price: 3534$</h3>
-        <h3>SHIB balance: 2 ETH</h3>
-        <h3>Balance value: 7068$</h3>
-        <h3>Market direction: 📈</h3>
-        <div class='status log-status green'>
-          <h3>sell</h3>
-        </div>
-      </div>
-
-      <div class='log-card'>
-        <h3>Buy at: 20h32</h3>
-        <h3>Current ETH price: 3534$</h3>
-        <h3>SHIB balance: 2 ETH</h3>
-        <h3>Balance value: 7068$</h3>
-        <h3>Market direction: 📈</h3>
-        <div class='status log-status yellow'>
-          <h3>wait</h3>
-        </div>
-      </div>
-
-      <div class='log-card'>
-        <h3>Buy at: 20h32</h3>
-        <h3>Current ETH price: 3534$</h3>
-        <h3>SHIB balance: 2 ETH</h3>
-        <h3>Balance value: 7068$</h3>
-        <h3>Market direction: 📈</h3>
-        <div class='status log-status red'>
-          <h3>buy</h3>
-        </div>
-      </div>
+      <% end %>
 
     </div>
   </div>

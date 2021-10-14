@@ -33,11 +33,10 @@ ActiveRecord::Schema.define(version: 2021_10_14_001451) do
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.integer "buy_price"
-    t.datetime "buy_at"
-    t.integer "sell_price"
-    t.datetime "sell_at"
+    t.integer "price"
+    t.datetime "time"
     t.integer "balance_value"
+    t.string "transaction_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

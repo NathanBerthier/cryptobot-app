@@ -11,10 +11,20 @@ class Crypto
   end
 
   def buy(balance_dai, dai_price, eth_price)
-    (balance_dai * dai_price) / eth_price
+    balance_value = (balance_dai * dai_price)
+    Transaction.create(price: eth_price * 1000,
+                       time: DateTime.current,
+                       balance_value: balance_value * 1000,
+                       transaction_type: 'buy')
+    balance_value / eth_price
   end
 
   def sell(balance_eth, eth_price, dai_price)
-    (balance_eth * eth_price) / dai_price
+    balance_value = (balance_eth * eth_price)
+    Transaction.create(price: eth_price * 1000,
+                       time: DateTime.current,
+                       balance_value: balance_value * 1000,
+                       transaction_type: 'sell')
+    balance_value / dai_price
   end
 end

@@ -8,4 +8,5 @@
 User.destroy_all
 puts 'Destroy all users'
 User.create!(email: 'nathanberthier@outlook.fr', password: 'Nath2703,')
+Bob.create!(status: 'sleeping')
 puts 'Create user nathan'
