@@ -1,10 +1,11 @@
 class CreateTransactions < ActiveRecord::Migration[6.0]
   def change
     create_table :transactions do |t|
-      t.integer :price
-      t.datetime :time
+      t.integer :buy_price
+      t.datetime :buy_at
+      t.integer :sell_price
+      t.datetime :sell_at
       t.integer :balance_value
-      t.string :transaction_type
       t.timestamps
     end
   end
