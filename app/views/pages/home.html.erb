@@ -37,6 +37,7 @@
         <h3>Profit</h3>
       </div>
       <h3>All time: <%= @last_transaction ? (@last_transaction.balance_value.to_f / 1000).round(3) - 500 : 0 %>$</h3>
+      <%= link_to 'See the graphic', graphic_path, class: 'btn' %>
     </div>
 
     <div class='home-log'>
