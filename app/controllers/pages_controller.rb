@@ -6,7 +6,7 @@ class PagesController < ApplicationController
   end
 
   def graphic
-    transactions = Transaction.last(100)
+    transactions = Transaction.all
     @eth_price = transactions.map { |set| [set[:created_at].strftime('%I:%M:%S'), (set[:price].to_f / 1000)] }.to_h
     @balance_value = transactions.map { |set| [set[:created_at].strftime('%I:%M:%S'), (set[:balance_value].to_f / 1000)] }.to_h
   end
