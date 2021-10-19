@@ -3,6 +3,7 @@ class MoulaJob < ApplicationJob
   sidekiq_options retry: false
 
   def perform
+    puts "I'm working"
     moula
     bob_sleeping
     puts "I'm sleeping"
