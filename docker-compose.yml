@@ -5,7 +5,7 @@ services:
     environment:
       - POSTGRES_PASSWORD=password
     ports:
-      - "5433:5433"
+      - "5432:5432"
     volumes:
       - "dbdata:/var/lib/postgresql/data"
 
@@ -21,7 +21,7 @@ services:
       - db
       - redis
     environment:
-      - DATABASE_URL=postgres://postgres:password@db:5433/postgres
+      - DATABASE_URL=postgres://postgres:password@db:5432/postgres
       - REDIS_URL=redis://redis:6380
 
   web:
@@ -34,7 +34,7 @@ services:
       - redis
       - sidekiq
     environment:
-      - DATABASE_URL=postgres://postgres:password@db:5433/postgres
+      - DATABASE_URL=postgres://postgres:password@db:5432/postgres
       - REDIS_URL=redis://redis:6380
 volumes:
   dbdata:
