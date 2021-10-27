@@ -12,7 +12,7 @@ services:
   redis:
     image: redis:latest
     ports:
-      - "6380:6380"
+      - "6379:6379"
 
   sidekiq:
     build: .
@@ -22,19 +22,19 @@ services:
       - redis
     environment:
       - DATABASE_URL=postgres://postgres:password@db:5432/postgres
-      - REDIS_URL=redis://redis:6380
+      - REDIS_URL=redis://redis:6379
 
   web:
     build: .
-    command: bundle exec rails s -p 7070 -b '0.0.0.0'
+    command: bundle exec rails s -p 6969 -b '0.0.0.0'
     ports:
-      - "7070:7070"
+      - "6969:6969"
     depends_on:
       - db
       - redis
       - sidekiq
     environment:
       - DATABASE_URL=postgres://postgres:password@db:5432/postgres
-      - REDIS_URL=redis://redis:6380
+      - REDIS_URL=redis://redis:6379
 volumes:
   dbdata:
